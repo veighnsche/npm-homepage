@@ -1,48 +1,42 @@
 <script>
-  import { onMount } from "svelte";
-  export let date;
-
-  onMount(async () => {
-    const res = await fetch("/api/date");
-    const newDate = await res.text();
-    date = newDate;
-  });
+  import Header from './Header.svelte'
+  import Jumbo from './Jumbo.svelte'
 </script>
 
-<main>
-  <h1>Svelte + Node.js API</h1>
-  <h2>
-    Deployed with
-    <a href="https://vercel.com/docs" target="_blank" rel="noreferrer noopener">
-      Vercel
-    </a>
-    !
-  </h2>
-  <p>
-    <a
-      href="https://github.com/vercel/vercel/tree/master/examples/svelte"
-      target="_blank"
-      rel="noreferrer noopener">
-      This project
-    </a>
-    is a
-    <a href="https://svelte.dev/">Svelte</a>
-    app with three directories,
-    <code>/public</code>
-    for static assets,
-    <code>/src</code>
-    for components and content, and
-    <code>/api</code>
-    which contains a serverless
-    <a href="https://nodejs.org/en/">Node.js</a>
-    function. See
-    <a href="/api/date">
-      <code>api/date</code>
-      for the Date API with Node.js
-    </a>
-    .
-  </p>
-  <br />
-  <h2>The date according to Node.js is:</h2>
-  <p>{date ? date : 'Loading date...'}</p>
-</main>
+<style>
+    main {
+
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-rows: 17vh 66vh 17vh auto;
+        grid-template-areas: "header" "jumbo" "main" "main";
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+    .jumbo {
+        grid-area: jumbo;
+    }
+
+    .main {
+        grid-area: main;
+    }
+</style>
+
+<svelte:head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Heebo:wght@600&family=Libre+Baskerville&display=swap"
+    rel="stylesheet">
+</svelte:head>
+
+<div class="wrapper">
+  <div class="header"><Header/></div>
+  <div class="jumbo"><Jumbo/></div>
+  <div class="main"><main></main></div>
+</div>
+
+
