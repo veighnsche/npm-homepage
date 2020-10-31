@@ -1,3 +1,7 @@
+<script>
+  import { currentPage } from '../currentPageStore'
+</script>
+
 <style>
     .wrapper {
         height: 100vh;
@@ -26,10 +30,11 @@
     }
 
     .card {
+        cursor: pointer;
         width: 25vw;
         height: 25vh;
         background-size: cover;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.20);
         -webkit-background-clip: text;
         color: transparent;
         display: grid;
@@ -43,18 +48,32 @@
                 ". . . . .";
     }
 
+    .texture {
+        background-color: #fafaff;
+        background-image: url("texture.png");
+    }
+
     .deepmerge {
         grid-area: deepmerge;
-        background-image: url('jumbo/deepmerge.jpg');
     }
 
     .csv {
         grid-area: csv;
-        background-image: url('jumbo/csv.jpg');
     }
 
     .pipe {
         grid-area: pipe;
+    }
+
+    .deepmerge .card {
+        background-image: url('jumbo/deepmerge.jpg');
+    }
+
+    .csv .card {
+        background-image: url('jumbo/csv.jpg');
+    }
+
+    .pipe .card {
         background-image: url('jumbo/pipe.jpg');
     }
 
@@ -74,19 +93,25 @@
 
 <div class="wrapper">
   <div class="paper">
-    <div class="card deepmerge">
-      <h1>Deepmerge</h1>
-      <p>To merge javascript object literals with arrays and options</p>
+    <div class="deepmerge texture" on:click={currentPage.set('deepmerge')}>
+      <div class="card">
+        <h1>Deepmerge</h1>
+        <p>To merge javascript object literals with arrays and options</p>
+      </div>
     </div>
 
-    <div class="card csv">
-      <h1>CSV</h1>
-      <p>To transform CSV files into javascript object literals, JSON or back to CSV files</p>
+    <div class="csv texture" on:click={currentPage.set('csv')}>
+      <div class="card">
+        <h1>CSV</h1>
+        <p>To transform CSV files into javascript object literals, JSON or back to CSV files</p>
+      </div>
     </div>
 
-    <div class="card pipe">
-      <h1>Pipe</h1>
-      <p>To start using javascript as a functional paradigm with these foundational building blocks</p>
+    <div class="pipe texture" on:click={currentPage.set('pipe')}>
+      <div class="card">
+        <h1>Pipe</h1>
+        <p>To start using javascript as a functional paradigm with these foundational building blocks</p>
+      </div>
     </div>
   </div>
 </div>
