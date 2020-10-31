@@ -20,10 +20,10 @@
         grid-template-columns: 20% auto 20%;
         grid-template-rows: 1fr 1.1em 0.3em 1fr;
         grid-template-areas:
-          ". . ."
-          ". brand ."
-          ". tag ."
-          ". . .";
+                ". . ."
+                ". brand ."
+                ". tag ."
+                ". . .";
     }
 
     .bg-home {

@@ -7,14 +7,13 @@
         font-size: 2.5rem;
         width: 100%;
         height: 100%;
-        /*background-color: maroon;*/
         display: grid;
         grid-template-columns: 20% auto 20%;
         grid-template-rows: 1fr 1.3em auto;
         grid-template-areas:
-          ". . ."
-          ". text-brand ."
-          ". nav .";
+                ". . ."
+                ". text-brand ."
+                ". nav .";
     }
 
     .text-brand {
@@ -28,7 +27,6 @@
     }
 
     nav {
-        /*background-color: #0076ff;*/
         grid-area: nav;
         font-size: 0.7em;
         font-family: 'Heebo', sans-serif;
@@ -40,7 +38,6 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        /*background-color: #333;*/
     }
 
     li {

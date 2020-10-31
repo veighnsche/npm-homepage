@@ -1,1 +1,11 @@
-<div style="height: 1000px"/>
+<style>
+    .wrapper {
+        display: grid;
+
+    }
+
+</style>
+
+<div class="wrapper">
+
+</div>
