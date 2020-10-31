@@ -8,14 +8,14 @@
     }
 
     .jumbo {
-        font-size: 70px;
+        font-size: 5rem;
         color: #eeeeee;
-        width: 1fr;
-        height: 100%;
         background-size: cover;
     }
 
-    .jumbo {
+    .wrapper {
+        width: 1fr;
+        height: 100%;
         display: grid;
         grid-template-columns: 20% auto 20%;
         grid-template-rows: 1fr 1.1em 0.3em 1fr;
@@ -58,7 +58,7 @@
 
 </style>
 
-<div class="jumbo bg-{$nav}">
+<div class="wrapper jumbo bg-{$nav}">
   {#if $nav !== 'home'}
     <div class="brand">
       Veighnsche/{$nav}

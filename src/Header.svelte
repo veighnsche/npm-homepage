@@ -4,8 +4,8 @@
 
 <style>
     header {
-        font-size: 40px;
-        width: 1fr;
+        font-size: 2.5rem;
+        width: 100%;
         height: 100%;
         /*background-color: maroon;*/
         display: grid;
