@@ -1,5 +1,5 @@
 <script>
-  import { nav } from './navStore'
+  import { currentPage } from './currentPageStore'
   import Header from './Header.svelte'
   import Jumbo from './Jumbo.svelte'
   import Arrow from './Arrow.svelte'
@@ -56,7 +56,7 @@
 
   <div class="main">
     <main>
-      {#if $nav === 'home'}
+      {#if $currentPage === 'home'}
         <Home/>
       {/if}
     </main>

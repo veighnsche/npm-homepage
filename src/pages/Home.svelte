@@ -3,7 +3,7 @@
         height: 100vh;
         width: 100%;
         display: grid;
-        grid-template-columns: 10% auto 10%;
+        grid-template-columns: 1fr 1920px 1fr;
         grid-template-rows: 13vh auto 13vh;
         grid-template-areas:
                 ". . ."

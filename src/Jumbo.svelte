@@ -1,5 +1,5 @@
 <script>
-  import { nav } from './navStore'
+  import { currentPage } from './currentPageStore'
 </script>
 
 <style>
@@ -58,10 +58,10 @@
 
 </style>
 
-<div class="wrapper jumbo bg-{$nav}">
-  {#if $nav !== 'home'}
+<div class="wrapper jumbo bg-{$currentPage}">
+  {#if $currentPage !== 'home'}
     <div class="brand">
-      Veighnsche/{$nav}
+      Veighnsche/{$currentPage}
     </div>
   {:else}
     <div class="brand">

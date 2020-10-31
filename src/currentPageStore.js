@@ -9,4 +9,4 @@ function createNav() {
   }
 }
 
-export const nav = createNav()
+export const currentPage = createNav()

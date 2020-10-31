@@ -1,5 +1,5 @@
 <script>
-  import { nav } from './navStore'
+  import { currentPage } from './currentPageStore'
 </script>
 
 <style>
@@ -64,15 +64,15 @@
 </style>
 
 <header>
-  <div class="text-brand" on:click={nav.set('home')}>
+  <div class="text-brand" on:click={currentPage.set('home')}>
     V
   </div>
 
   <nav>
     <ul>
-      <li class="{$nav === 'deepmerge' && 'active'}" on:click={nav.set('deepmerge')}>deepmerge</li>
-      <li class="{$nav === 'csv' && 'active'}" on:click={nav.set('csv')}>csv</li>
-      <li class="{$nav === 'pipe' && 'active'}" on:click={nav.set('pipe')}>pipe</li>
+      <li class="{$currentPage === 'deepmerge' && 'active'}" on:click={currentPage.set('deepmerge')}>deepmerge</li>
+      <li class="{$currentPage === 'csv' && 'active'}" on:click={currentPage.set('csv')}>csv</li>
+      <li class="{$currentPage === 'pipe' && 'active'}" on:click={currentPage.set('pipe')}>pipe</li>
     </ul>
   </nav>
 </header>
