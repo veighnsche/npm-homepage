@@ -68,7 +68,7 @@
 
     h1 {
         grid-area: title;
-        font-size: 4em;
+        font-size: 3em;
         font-family: 'Libre Baskerville', serif;
     }
 
