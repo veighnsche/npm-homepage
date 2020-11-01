@@ -1,38 +1,14 @@
 <script>
-  import { currentPage } from './currentPageStore'
+  import { Route, Router } from 'svelte-routing'
   import Header from './Header.svelte'
-  import Jumbo from './Jumbo.svelte'
-  import Arrow from './Arrow.svelte'
+  import Deepmerge from './pages/Deepmerge.svelte'
+  import Csv from './pages/Csv.svelte'
+  import Pipe from './pages/Pipe.svelte'
   import Home from './pages/Home.svelte'
 </script>
 
-<style>
-    main {
-        display: grid;
+<style lang="scss">
 
-    }
-
-    .wrapper {
-        display: grid;
-        grid-template-rows: 17vh 66vh 17vh auto;
-        grid-template-areas:
-                "header"
-                "jumbo"
-                "arrow"
-                "main";
-    }
-
-    .header {
-        grid-area: header;
-    }
-
-    .jumbo {
-        grid-area: jumbo;
-    }
-
-    .main {
-        grid-area: main;
-    }
 </style>
 
 <svelte:head>
@@ -41,26 +17,17 @@
     rel="stylesheet">
 </svelte:head>
 
-<div class="wrapper">
+<Router>
   <div class="header">
     <Header/>
   </div>
 
-  <div class="jumbo">
-    <Jumbo/>
-  </div>
-
-  <div class="arrow">
-    <Arrow/>
-  </div>
-
-  <div class="main">
-    <main>
-      {#if $currentPage === 'home'}
-        <Home/>
-      {/if}
-    </main>
-  </div>
-</div>
+  <main>
+    <Route component={Deepmerge} path="deepmerge"/>
+    <Route component={Csv} path="csv"/>
+    <Route component={Pipe} path="pipe"/>
+    <Route component={Home} path="/"/>
+  </main>
+</Router>
 
 

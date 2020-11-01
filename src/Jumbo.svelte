@@ -1,74 +1,44 @@
 <script>
-  import { currentPage } from './currentPageStore'
+  export let name
+  export let title
+  export let tag = ''
+
+  const backgroundUrl = `jumbo/${name}.jpg`
 </script>
 
-<style>
-    main {
+<style lang="scss">
+  main {
+    width: 100%;
+    height: 66vh;
+    display: grid;
+    color: #eeeeee;
+    background-size: cover;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 1fr 1.1em 0.3em 1fr;
+    grid-template-areas: ". . ." ". brand ." ". tag ." ". . .";
+  }
 
-    }
-
-    .jumbo {
-        font-size: 5rem;
-        color: #eeeeee;
-        background-size: cover;
-    }
-
-    .wrapper {
-        width: 1fr;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 20% auto 20%;
-        grid-template-rows: 1fr 1.1em 0.3em 1fr;
-        grid-template-areas:
-                ". . ."
-                ". brand ."
-                ". tag ."
-                ". . .";
-    }
-
-    .bg-home {
-        background: url('jumbo/home.jpg') no-repeat center;
-    }
-
-    .bg-deepmerge {
-        background: url('jumbo/deepmerge.jpg') no-repeat center;
-    }
-
-    .bg-csv {
-        background: url('jumbo/csv.jpg') no-repeat center;
-    }
-
-    .bg-pipe {
-        background: url('jumbo/pipe.jpg') no-repeat center;
-    }
-
-    .brand {
-        grid-area: brand;
-        font-family: 'Great Vibes', cursive;
-        /*letter-spacing: 0.1em;*/
-    }
+  .brand {
+    font-size: 5rem;
+    grid-area: brand;
+    font-family: 'Great Vibes', cursive;
 
     .tag {
-        grid-area: tag;
-        font-family: 'Heebo', sans-serif;
-        font-size: 0.3em;
-        opacity: 0.3;
-        padding-left: 3.3em;
+      grid-area: tag;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.3em;
+      opacity: 0.3;
+      padding-left: 3.3em;
     }
 
+  }
 </style>
 
-<div class="wrapper jumbo bg-{$currentPage}">
-  {#if $currentPage !== 'home'}
-    <div class="brand">
-      Veighnsche/{$currentPage}
-    </div>
-  {:else}
-    <div class="brand">
-      Veighnsche
-    </div>
+<main style="background: url({backgroundUrl}) no-repeat center">
+  <span class="brand">
+    {title}
     <div class="tag">
-      pronounced Fins
+      {tag}
     </div>
-  {/if}
-</div>
+  </span>
+</main>

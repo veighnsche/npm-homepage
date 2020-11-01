@@ -1,6 +1,7 @@
 html {
   overflow: scroll;
   overflow-x: hidden;
+  background: #fbfbf8 url("textures/texture.png");
 }
 
 ::-webkit-scrollbar {
@@ -18,4 +19,9 @@ pre {
 code:before,
 code:after {
   content: '\`';
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
