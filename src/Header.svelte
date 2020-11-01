@@ -1,6 +1,8 @@
 <script>
-  import { Link } from 'svelte-routing'
-  let pathName = window.location.pathname
+  import { deepmerge, csv, pipe } from './routes'
+  let pathname = window.location.pathname
+  const setPathname = (pathname = '') => () => window.location.pathname = pathname
+  const isActive = active => pathname === active && 'active'
 </script>
 
 <style lang="scss">
@@ -65,28 +67,20 @@
 </style>
 
 <header>
-  <div class="text-brand" on:click={() => pathName = '/'}>
-    <Link to="/">
-      V
-    </Link>
+  <div class="text-brand" on:click={setPathname()}>
+    V
   </div>
 
   <nav>
     <ul>
-      <li class="{pathName === '/deepmerge' && 'active'}" on:click={() => pathName = '/deepmerge'}>
-        <Link to="deepmerge">
-          deepmerge
-        </Link>
+      <li class={isActive(deepmerge)} on:click={setPathname(deepmerge)}>
+        deepmerge
       </li>
-      <li class="{pathName === '/csv' && 'active'}" on:click={() => pathName = '/csv'}>
-        <Link to="csv">
-          csv
-        </Link>
+      <li class={isActive(csv)} on:click={setPathname(csv)}>
+        csv
       </li>
-      <li class="{pathName === '/pipe' && 'active'}" on:click={() => pathName = '/pipe'}>
-        <Link to="pipe">
-          pipe
-        </Link>
+      <li class="{isActive(pipe)}" on:click={setPathname(pipe)}>
+        pipe
       </li>
     </ul>
   </nav>

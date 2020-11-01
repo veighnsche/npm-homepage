@@ -1,10 +1,13 @@
 <script>
-  import { Route, Router } from 'svelte-routing'
+  import { csv, deepmerge, pipe } from './routes'
+
   import Header from './Header.svelte'
   import Deepmerge from './pages/Deepmerge.svelte'
   import Csv from './pages/Csv.svelte'
   import Pipe from './pages/Pipe.svelte'
   import Home from './pages/Home.svelte'
+
+  let pathname = window.location.pathname
 </script>
 
 <style lang="scss">
@@ -17,17 +20,20 @@
     rel="stylesheet">
 </svelte:head>
 
-<Router>
-  <div class="header">
-    <Header/>
-  </div>
+<div class="header">
+  <Header/>
+</div>
 
-  <main>
-    <Route component={Deepmerge} path="deepmerge"/>
-    <Route component={Csv} path="csv"/>
-    <Route component={Pipe} path="pipe"/>
-    <Route component={Home} path="/"/>
-  </main>
-</Router>
+<main>
+  {#if (pathname === deepmerge)}
+    <Deepmerge/>
+  {:else if (pathname === csv)}
+    <Csv/>
+  {:else if (pathname === pipe)}
+    <Pipe/>
+  {:else}
+    <Home/>
+  {/if}
+</main>
 
 
