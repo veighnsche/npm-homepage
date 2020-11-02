@@ -1,13 +1,12 @@
 <script>
-  import { csv, deepmerge, pipe } from './routes'
-
+  import { csv, deepmerge, home, pipe } from './routes'
+  import { pathname } from './store/pathname'
   import Header from './Header.svelte'
   import Deepmerge from './pages/Deepmerge.svelte'
   import Csv from './pages/Csv.svelte'
   import Pipe from './pages/Pipe.svelte'
   import Home from './pages/Home.svelte'
-
-  let pathname = window.location.pathname
+  import Jumbo from './Jumbo.svelte'
 </script>
 
 <style lang="scss">
@@ -20,16 +19,16 @@
     rel="stylesheet">
 </svelte:head>
 
-<div class="header">
-  <Header/>
-</div>
+
+<Header/>
+<Jumbo/>
 
 <main>
-  {#if (pathname === deepmerge)}
+  {#if ($pathname === deepmerge)}
     <Deepmerge/>
-  {:else if (pathname === csv)}
+  {:else if ($pathname === csv)}
     <Csv/>
-  {:else if (pathname === pipe)}
+  {:else if ($pathname === pipe)}
     <Pipe/>
   {:else}
     <Home/>

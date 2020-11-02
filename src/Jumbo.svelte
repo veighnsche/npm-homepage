@@ -1,9 +1,8 @@
 <script>
-  export let name
-  export let title
-  export let tag = ''
+  import { home } from './routes'
+  import { pathname } from './store/pathname'
 
-  const backgroundUrl = `jumbo/${name}.jpg`
+  $: console.log($pathname);
 </script>
 
 <style lang="scss">
@@ -30,15 +29,17 @@
       opacity: 0.3;
       padding-left: 3.3em;
     }
-
   }
+
+
+
 </style>
 
-<main style="background: url({backgroundUrl}) no-repeat center">
+<main style="background: url({`jumbo${$pathname}.jpg`}) no-repeat center">
   <span class="brand">
-    {title}
+    Veighnsche {$pathname}
     <div class="tag">
-      {tag}
+      {$pathname === home ? 'pronounced Fins' : ''}
     </div>
   </span>
 </main>

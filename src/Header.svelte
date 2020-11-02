@@ -1,8 +1,8 @@
 <script>
-  import { deepmerge, csv, pipe } from './routes'
-  let pathname = window.location.pathname
-  const setPathname = (pathname = '') => () => window.location.pathname = pathname
-  const isActive = active => pathname === active && 'active'
+  import { home, deepmerge, csv, pipe } from './routes'
+  import { pathname } from './store/pathname'
+
+  const isActive = active => $pathname === active && 'active'
 </script>
 
 <style lang="scss">
@@ -67,19 +67,19 @@
 </style>
 
 <header>
-  <div class="text-brand" on:click={setPathname()}>
+  <div class="text-brand" on:click={pathname.set(home)}>
     V
   </div>
 
   <nav>
     <ul>
-      <li class={isActive(deepmerge)} on:click={setPathname(deepmerge)}>
+      <li class={isActive(deepmerge)} on:click={pathname.set(deepmerge)}>
         deepmerge
       </li>
-      <li class={isActive(csv)} on:click={setPathname(csv)}>
+      <li class={isActive(csv)} on:click={pathname.set(csv)}>
         csv
       </li>
-      <li class="{isActive(pipe)}" on:click={setPathname(pipe)}>
+      <li class="{isActive(pipe)}" on:click={pathname.set(pipe)}>
         pipe
       </li>
     </ul>
