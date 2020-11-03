@@ -6,3 +6,10 @@ export const brandColors = {
   [csv]: '#3c3c3c',
   [pipe]: '#10181b',
 }
+
+export const brandColorsAlt = {
+  [home]: '#fcad2c',
+  [deepmerge]: '#505157',
+  [csv]: '#a9a9a9',
+  [pipe]: '#807573',
+}
