@@ -1,5 +1,5 @@
 <script>
-  import { csv, deepmerge, home, pipe } from './routes'
+  import { csv, deepmerge, pipe } from './routes'
   import { pathname } from './store/pathname'
   import Header from './Header.svelte'
   import Deepmerge from './pages/Deepmerge.svelte'
@@ -22,10 +22,7 @@
 
 <Header/>
 <Jumbo/>
-
-{#if ($pathname !== home)}
-  <Arrow/>
-{/if}
+<Arrow/>
 
 <main>
   {#if ($pathname === deepmerge)}

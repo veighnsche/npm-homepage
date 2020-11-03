@@ -6,8 +6,6 @@
   $: deepmergeClass = deepmerge === $pathname ? 'active' : ''
   $: csvClass = csv === $pathname ? 'active' : ''
   $: pipeClass = pipe === $pathname ? 'active' : ''
-
-
 </script>
 
 <style lang="scss">
@@ -53,7 +51,7 @@
     text-align: center;
     padding: 0.3em 0.4em;
     text-decoration: none;
-    transition: background-color 50ms;
+    transition: background-color 1s;
   }
 
   li:hover {
