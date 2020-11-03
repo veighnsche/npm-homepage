@@ -1,8 +1,20 @@
 <script>
-  import { home } from './routes'
+  import { csv, deepmerge, home, pipe } from './routes'
   import { pathname } from './store/pathname'
 
-  $: console.log($pathname);
+  const classes = {
+    [home]: 'home',
+    [deepmerge]: 'deepmerge',
+    [csv]: 'csv',
+    [pipe]: 'pipe',
+  }
+
+  function pathnameDisplay(pathname) {
+    if (home === pathname) {
+      return ''
+    }
+    return pathname
+  }
 </script>
 
 <style lang="scss">
@@ -12,6 +24,8 @@
     display: grid;
     color: #eeeeee;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     grid-template-columns: 20% auto 20%;
     grid-template-rows: 1fr 1.1em 0.3em 1fr;
     grid-template-areas: ". . ." ". brand ." ". tag ." ". . .";
@@ -31,13 +45,26 @@
     }
   }
 
+  .home {
+    background-image: url('jumbo/home.jpg');
+  }
 
+  .deepmerge {
+    background-image: url('jumbo/deepmerge.jpg');
+  }
 
+  .csv {
+    background-image: url("jumbo/csv.jpg");
+  }
+
+  .pipe {
+    background-image: url("jumbo/pipe.jpg");
+  }
 </style>
 
-<main style="background: url({`jumbo${$pathname}.jpg`}) no-repeat center">
+<main class={classes[$pathname]}>
   <span class="brand">
-    Veighnsche {$pathname}
+    Veighnsche {pathnameDisplay($pathname)}
     <div class="tag">
       {$pathname === home ? 'pronounced Fins' : ''}
     </div>

@@ -7,6 +7,7 @@
   import Pipe from './pages/Pipe.svelte'
   import Home from './pages/Home.svelte'
   import Jumbo from './Jumbo.svelte'
+  import Arrow from './Arrow.svelte'
 </script>
 
 <style lang="scss">
@@ -19,9 +20,12 @@
     rel="stylesheet">
 </svelte:head>
 
-
 <Header/>
 <Jumbo/>
+
+{#if ($pathname !== home)}
+  <Arrow/>
+{/if}
 
 <main>
   {#if ($pathname === deepmerge)}
