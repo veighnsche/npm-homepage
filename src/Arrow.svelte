@@ -11,11 +11,16 @@
                 ". . .";
     }
 
-    img {
+    svg {
         grid-area: arrow;
     }
 </style>
 
 <div class="wrapper">
-  <img alt="arrow-down" height="100" src="arrow_down.svg" width="100"/>
+  <svg height="6em" viewBox="0 0 22 22" width="6em" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill="#11332a"
+      d="m3.707031 7l-.707031.707031 6.125 6.125 1.875 1.875 1.875-1.875 6.125-6.125-.707031-.707031-6.125 6.125-1.167969 1.167969-1.167969-1.167969-6.125-6.125"
+    />
+  </svg>
 </div>

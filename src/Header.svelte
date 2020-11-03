@@ -1,10 +1,13 @@
 <script>
   import { home, deepmerge, csv, pipe } from './routes'
   import { pathname } from './store/pathname'
+  import Brand from './Brand.svelte'
 
   $: deepmergeClass = deepmerge === $pathname ? 'active' : ''
   $: csvClass = csv === $pathname ? 'active' : ''
   $: pipeClass = pipe === $pathname ? 'active' : ''
+
+
 </script>
 
 <style lang="scss">
@@ -14,20 +17,18 @@
     height: 17vh;
     display: grid;
     grid-template-columns: 20% auto 20%;
-    grid-template-rows: 1fr 1.3em auto;
+    grid-template-rows: 1fr 2.5em auto;
     grid-template-areas:
                 ". . ."
-                ". text-brand ."
+                ". brand ."
                 ". nav .";
   }
 
-  .text-brand {
-    grid-area: text-brand;
-    font-family: 'Libre Baskerville', serif;
-    letter-spacing: 0.1em;
+  .brand {
+    grid-area: brand;
   }
 
-  .text-brand:hover {
+  .brand:hover {
     cursor: pointer;
   }
 
@@ -52,6 +53,7 @@
     text-align: center;
     padding: 0.3em 0.4em;
     text-decoration: none;
+    transition: background-color 50ms;
   }
 
   li:hover {
@@ -69,8 +71,8 @@
 </style>
 
 <header>
-  <div class="text-brand" on:click={pathname.set(home)}>
-    V
+  <div class="brand" on:click={pathname.set(home)}>
+    <Brand/>
   </div>
 
   <nav>

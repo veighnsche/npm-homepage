@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss">
-  main {
+  .jumbo {
     width: 100%;
     height: 66vh;
     display: grid;
@@ -29,6 +29,7 @@
     grid-template-columns: 20% auto 20%;
     grid-template-rows: 1fr 1.1em 0.3em 1fr;
     grid-template-areas: ". . ." ". brand ." ". tag ." ". . .";
+    transition: background-image 50ms;
   }
 
   .brand {
@@ -62,11 +63,11 @@
   }
 </style>
 
-<main class={classes[$pathname]}>
+<div class="jumbo {classes[$pathname]}">
   <span class="brand">
     Veighnsche {pathnameDisplay($pathname)}
     <div class="tag">
       {$pathname === home ? 'pronounced Fins' : ''}
     </div>
   </span>
-</main>
+</div>
