@@ -5,7 +5,7 @@
 </script>
 
 <style lang="scss">
-  .part, .empty-part {
+  .part, .empty-part, .header-part {
     width: 100%;
 
     display: grid;
@@ -17,7 +17,17 @@
     height: 3em;
   }
 
-  .description, .title {
+  .header-part div {
+    font-size: 2em;
+    padding-right: 0.3em;
+  }
+
+  .header-part code {
+    font-size: 2.05em;
+    padding-left: 0.2em;
+  }
+
+  .description, .title, .header {
     height: 100%;
     grid-area: description;
     padding: 0.6em;
@@ -30,6 +40,10 @@
     font-family: 'Great Vibes', cursive;
     font-size: 4em;
     text-align: center;
+  }
+
+  .header {
+    font-family: 'Libre Baskerville', serif;
   }
 
   code {
@@ -57,6 +71,15 @@
   <code style="background-color: {brandColors[csv]}"></code>
 </div>
 
+<div class="header-part">
+  <div class="header">
+    Getting
+  </div>
+  <code style="background-color: {brandColors[csv]}">
+    started
+  </code>
+</div>
+
 <div class="part">
   <div class="description">
     install
@@ -74,7 +97,6 @@
     npm install @veighnsche/csv
   </code>
 </div>
-
 
 <div class="part">
   <div class="description">
