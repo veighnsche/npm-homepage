@@ -15,7 +15,7 @@
     height: 17vh;
     display: grid;
     grid-template-columns: 20% auto 20%;
-    grid-template-rows: 1fr 2.5em auto;
+    grid-template-rows: 1fr 1.5em auto;
     grid-template-areas:
                 ". . ."
                 ". brand ."
@@ -34,6 +34,7 @@
     grid-area: nav;
     font-size: 0.7em;
     font-family: 'Heebo', sans-serif;
+    font-weight: 600;
     letter-spacing: 0.1em;
   }
 
