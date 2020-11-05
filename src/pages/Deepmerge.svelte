@@ -1,7 +1,6 @@
 <script>
-  import { deepmerge } from '../routes'
-  import { brandColors } from '../brandColors'
-
+  import { store } from '../store/store'
+  $: color = $store.brandColor
 </script>
 
 <style lang="scss">
@@ -54,28 +53,18 @@
 </style>
 
 
-<div class="empty-part">
+<div class="part">
   <div class="title">
     Veighnsche
   </div>
-  <code style="background-color: {brandColors[deepmerge]}"></code>
-</div>
-
-<div class="empty-part">
-  <div class="description"></div>
-  <code style="background-color: {brandColors[deepmerge]}"></code>
-</div>
-
-<div class="empty-part">
-  <div class="description"></div>
-  <code style="background-color: {brandColors[deepmerge]}"></code>
+  <code style="background-color: {color}"></code>
 </div>
 
 <div class="header-part">
   <div class="header">
     Getting
   </div>
-  <code style="background-color: {brandColors[deepmerge]}">
+  <code style="background-color: {color}">
     started
   </code>
 </div>
@@ -84,7 +73,7 @@
   <div class="description">
     install
   </div>
-  <code style="background-color: {brandColors[deepmerge]}">
+  <code style="background-color: {color}">
     yarn add @veighnsche/deepmerge
   </code>
 </div>
@@ -93,7 +82,7 @@
   <div class="description">
     npm install
   </div>
-  <code style="background-color: {brandColors[deepmerge]}">
+  <code style="background-color: {color}">
     npm install @veighnsche/deepmerge
   </code>
 </div>
@@ -102,12 +91,12 @@
   <div class="description">
     import
   </div>
-  <code style="background-color: {brandColors[deepmerge]}">
+  <code style="background-color: {color}">
     import {@html '{ deepmerge }'} from '@veighnsche/deepmerge'
   </code>
 </div>
 
 <div class="empty-part">
   <div class="description"></div>
-  <code style="background-color: {brandColors[deepmerge]}"></code>
+  <code style="background-color: {color}"></code>
 </div>

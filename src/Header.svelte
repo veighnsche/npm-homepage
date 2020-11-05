@@ -1,11 +1,6 @@
 <script>
-  import { home, deepmerge, csv, pipe } from './routes'
-  import { pathname } from './store/pathname'
-  import Brand from './Brand.svelte'
-
-  $: deepmergeClass = deepmerge === $pathname ? 'active' : ''
-  $: csvClass = csv === $pathname ? 'active' : ''
-  $: pipeClass = pipe === $pathname ? 'active' : ''
+  import { store, csv, deepmerge, home, pipe } from './store/store'
+  const navs = [deepmerge, csv, pipe]
 </script>
 
 <style lang="scss">
@@ -70,21 +65,15 @@
 </style>
 
 <header>
-  <div class="brand" on:click={pathname.set(home)}>
-    <Brand/>
-  </div>
+  <div class="brand" on:click={store.set(home)}/>
 
   <nav>
     <ul>
-      <li class={deepmergeClass} on:click={pathname.set(deepmerge)}>
-        deepmerge
-      </li>
-      <li class={csvClass} on:click={pathname.set(csv)}>
-        csv
-      </li>
-      <li class="{pipeClass}" on:click={pathname.set(pipe)}>
-        pipe
-      </li>
+      {#each navs as nav}
+        <li class={$store.classes.header[nav]} on:click={store.set(nav)}>
+          {nav.slice(1)}
+        </li>
+      {/each}
     </ul>
   </nav>
 </header>

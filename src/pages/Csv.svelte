@@ -1,7 +1,6 @@
 <script>
-  import { csv } from '../routes'
-  import { brandColors } from '../brandColors'
-
+  import { store } from '../store/store'
+  $: color = $store.brandColor
 </script>
 
 <style lang="scss">
@@ -54,46 +53,36 @@
 </style>
 
 
-<div class="empty-part">
-  <div class="title">
+<div class="part">
+  <div class="title" style="color: {color}">
     Veighnsche
   </div>
-  <code style="background-color: {brandColors[csv]}"></code>
-</div>
-
-<div class="empty-part">
-  <div class="description"></div>
-  <code style="background-color: {brandColors[csv]}"></code>
-</div>
-
-<div class="empty-part">
-  <div class="description"></div>
-  <code style="background-color: {brandColors[csv]}"></code>
+  <code style="background-color: {color}"></code>
 </div>
 
 <div class="header-part">
   <div class="header">
     Getting
   </div>
-  <code style="background-color: {brandColors[csv]}">
+  <code style="background-color: {color}">
     started
   </code>
 </div>
 
 <div class="part">
   <div class="description">
-    install
+    install through yarn
   </div>
-  <code style="background-color: {brandColors[csv]}">
+  <code style="background-color: {color}">
     yarn add @veighnsche/csv
   </code>
 </div>
 
 <div class="part">
   <div class="description">
-    npm install
+    or install through npm
   </div>
-  <code style="background-color: {brandColors[csv]}">
+  <code style="background-color: {color}">
     npm install @veighnsche/csv
   </code>
 </div>
@@ -102,12 +91,12 @@
   <div class="description">
     import
   </div>
-  <code style="background-color: {brandColors[csv]}">
+  <code style="background-color: {color}">
     import {@html '{ csv }'} from '@veighnsche/csv'
   </code>
 </div>
 
 <div class="empty-part">
   <div class="description"></div>
-  <code style="background-color: {brandColors[csv]}"></code>
+  <code style="background-color: {color}"></code>
 </div>

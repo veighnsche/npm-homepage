@@ -1,9 +1,5 @@
 <script>
-  import { pathname } from './store/pathname'
-  import { brandColors } from './brandColors'
-  import { home } from './routes'
-
-  $: arrowClass = home !== $pathname ? 'active' : ''
+  import { store } from './store/store'
 </script>
 
 <style lang="scss">
@@ -35,10 +31,10 @@
 </style>
 
 <div class="wrapper">
-  <svg class={arrowClass} height="6em" viewBox="0 0 22 22" width="6em">
+  <svg class={$store.classes.arrow} height="6em" viewBox="0 0 22 22" width="6em">
     <path
       d="m3.707031 7l-.707031.707031 6.125 6.125 1.875 1.875 1.875-1.875 6.125-6.125-.707031-.707031-6.125 6.125-1.167969 1.167969-1.167969-1.167969-6.125-6.125"
-      fill={brandColors[$pathname]}
+      fill={$store.brandColor}
     />
   </svg>
 </div>

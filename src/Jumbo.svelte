@@ -1,20 +1,5 @@
 <script>
-  import { csv, deepmerge, home, pipe } from './routes'
-  import { pathname } from './store/pathname'
-
-  const classes = {
-    [home]: 'home',
-    [deepmerge]: 'deepmerge',
-    [csv]: 'csv',
-    [pipe]: 'pipe',
-  }
-
-  function pathnameDisplay(pathname) {
-    if (home === pathname) {
-      return ''
-    }
-    return pathname
-  }
+  import { store, home } from './store/store'
 </script>
 
 <style lang="scss">
@@ -65,11 +50,11 @@
   }
 </style>
 
-<div class="jumbo {classes[$pathname]}">
+<div class="jumbo {$store.classes.jumbo}">
   <span class="brand">
-    Veighnsche {pathnameDisplay($pathname)}
+    Veighnsche {home !== $store.name ? $store.name : ''}
     <div class="tag">
-      {$pathname === home ? 'pronounced Fins' : ''}
+      {$store.name === home ? 'pronounced Fins' : ''}
     </div>
   </span>
 </div>
