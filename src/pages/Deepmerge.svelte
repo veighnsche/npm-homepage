@@ -1,5 +1,8 @@
 <script>
   import { store } from '../store/store'
+  import EmptyPart from './parts/EmptyPart.svelte'
+  import TitlePart from './parts/TitlePart.svelte'
+
   $: color = $store.brandColor
 </script>
 
@@ -52,13 +55,7 @@
   }
 </style>
 
-
-<div class="part">
-  <div class="title">
-    Veighnsche
-  </div>
-  <code style="background-color: {color}"></code>
-</div>
+<TitlePart/>
 
 <div class="header-part">
   <div class="header">
@@ -96,7 +93,4 @@
   </code>
 </div>
 
-<div class="empty-part">
-  <div class="description"></div>
-  <code style="background-color: {color}"></code>
-</div>
+<EmptyPart/>

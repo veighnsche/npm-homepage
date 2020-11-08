@@ -1,64 +1,53 @@
 <script>
   import { store } from '../store/store'
+  import EmptyPart from './parts/EmptyPart.svelte'
+  import TitlePart from './parts/TitlePart.svelte'
+
   $: color = $store.brandColor
 </script>
 
-<style lang="scss">
-  .part, .empty-part, .header-part {
-    width: 100%;
+<style lang="sass">
+  .part, .empty-part, .header-part
+    width: 100%
+    display: grid
+    grid-template-columns: 2fr 1.5fr
+    grid-template-areas: "description code"
 
-    display: grid;
-    grid-template-columns: 2fr 1.5fr;
-    grid-template-areas: "description code";
-  }
+  .empty-part
+    height: 3em
 
-  .empty-part {
-    height: 3em;
-  }
+  .header-part div
+    font-size: 2em
+    padding-right: 0.3em
 
-  .header-part div {
-    font-size: 2em;
-    padding-right: 0.3em;
-  }
+  .header-part code
+    font-size: 2.05em
+    padding-left: 0.2em
 
-  .header-part code {
-    font-size: 2.05em;
-    padding-left: 0.2em;
-  }
+  .description, .title, .header
+    height: 100%
+    grid-area: description
+    padding: 0.6em
+    font-family: 'Heebo', sans-serif
+    font-size: 1.1rem
+    text-align: end
 
-  .description, .title, .header {
-    height: 100%;
-    grid-area: description;
-    padding: 0.6em;
-    font-family: 'Heebo', sans-serif;
-    font-size: 1.1rem;
-    text-align: end;
-  }
+  .title
+    font-family: 'Great Vibes', cursive
+    font-size: 4em
+    text-align: center
 
-  .title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 4em;
-    text-align: center;
-  }
+  .header
+    font-family: 'Libre Baskerville', serif
 
-  .header {
-    font-family: 'Libre Baskerville', serif;
-  }
+  code
+    height: 100%
+    grid-area: code
+    padding: 0.6em
 
-  code {
-    height: 100%;
-    grid-area: code;
-    padding: 0.6em;
-  }
 </style>
 
-
-<div class="part">
-  <div class="title" style="color: {color}">
-    Veighnsche
-  </div>
-  <code style="background-color: {color}"></code>
-</div>
+<TitlePart/>
 
 <div class="header-part">
   <div class="header">
@@ -96,7 +85,4 @@
   </code>
 </div>
 
-<div class="empty-part">
-  <div class="description"></div>
-  <code style="background-color: {color}"></code>
-</div>
+<EmptyPart/>
